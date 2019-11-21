@@ -54,3 +54,14 @@ module.exports.calculateScore = function(player) {
           break;
   }
 };
+
+
+function calculateRushingScore(player) {
+  var yards = player.stats.rushing.yards / 10
+  var touchdowns = player.stats.rushing.touchdowns * 6
+  var fumbles = player.stats.rushing.fumbles * -3
+
+  return parseFloat((yards + touchdowns + fumbles).toFixed(2))
+}
+
+module.exports.calculateRushingScore = calculateRushingScore
